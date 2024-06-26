@@ -9,16 +9,15 @@ jobs:
     name: Install and build
     runs-on: ubuntu-latest
     steps:
-      steps:
-        - uses: pnpm/action-setup@v4
-          with:
-            version: 8
-        - name: Setup Expo and EAS
-          uses: expo/expo-github-action@v8
-          with:
-            eas-version: latest
-            token: ${{ secrets.EXPO_TOKEN }}
-        - name: Install dependencies
-          run: pnpm i
-        - name: Build on EAS
-          run: eas build --platform all --non-interactive --no-wait
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - name: Setup Expo and EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Install dependencies
+        run: pnpm i
+      - name: Build on EAS
+        run: eas build --platform all --non-interactive --no-wait
